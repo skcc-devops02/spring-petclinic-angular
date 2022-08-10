@@ -1,6 +1,4 @@
 pipeline {
-  agent {
-  }
 
   environment {
     REGISTRY_URL = '3.35.252.125:8000'
