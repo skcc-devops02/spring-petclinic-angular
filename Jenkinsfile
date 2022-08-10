@@ -1,5 +1,6 @@
 pipeline {
-
+  agnet any
+  
   environment {
     REGISTRY_URL = '3.35.252.125:8000'
     REGISTRY_CREDENTIALS = 'harbor-docker-registry'
