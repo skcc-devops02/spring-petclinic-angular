@@ -8,7 +8,8 @@ pipeline {
     APP_IMAGE = null
     IMAGE_REPO = 'petclinic'
     IMAGE_NAME = 'spring-petclinic-angular'
-    IMAGE_TAG = sh(returnStdout: true, script: '(git rev-parse --short HEAD && echo "_$BUILD_NUMBER") | tr -d "\n"').trim()
+    //IMAGE_TAG = sh(returnStdout: true, script: '(git rev-parse --short HEAD && echo "_$BUILD_NUMBER") | tr -d "\n"').trim()
+    IMAGE_TAG = 'latest'
   }
 
   stages {
