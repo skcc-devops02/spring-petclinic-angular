@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-angular-deployment
+  namespace: petclinic-dev
+  labels:
+    app: petclinic-angular
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petclinic-angular
+  template:
+    metadata:
+      labels:
+        app: petclinic-angular
+    spec:
+      containers:
+      - name: petclinic-angular
+        image: ${REGISTRY_URL}/${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: harbor-credentials
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: petclinic-angular-service
+  namespace: petclinic-dev
+  labels:
+    app: petclinic-angular
+spec:
+  type: LoadBalancer
+  selector:
+    app: petclinic-angular
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
