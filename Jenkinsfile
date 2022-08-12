@@ -16,7 +16,7 @@ pipeline {
     stage( 'Deploy to Cluster' ) {
       steps {
         script {
-          kubernetesDeploy(kubeconfigId: 'kubeconfig-sa-token', configs: 'spring-petclinic-angular.yaml')
+          kubernetesDeploy(kubeconfigId: 'kubeconfig-sa-token', configs: 'spring-petclinic-angular2.yaml')
         }
         sh 'sleep 20'
       }
