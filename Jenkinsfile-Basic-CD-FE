@@ -65,7 +65,7 @@ pipeline {
       steps {
         container('docker') {
           script {
-            APP_IMAGE = docker.build("${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}", "--network=host")
+            APP_IMAGE = docker.build("--network=host ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}")
           }
         }
       }
