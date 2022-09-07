@@ -12,6 +12,8 @@ ARG NPM_REGISTRY=" https://registry.npmjs.org"
 RUN echo "registry = \"$NPM_REGISTRY\"" > /workspace/.npmrc                              && \
     cd /workspace/                                                                       && \
     npm install                                                                          && \
+    npm config rm proxy && \
+    npm config rm https-proxy --tried removing npm proxy && \
     npm run build
 
 FROM $DOCKER_HUB/library/nginx:$NGINX_VERSION AS runtime
