@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent none
   
   environment {
     REGISTRY_URL = '3.35.252.125:8000'
@@ -8,7 +8,7 @@ pipeline {
     IMAGE_REPO = 'petclinic'
     IMAGE_NAME = 'spring-petclinic-angular'
     //IMAGE_TAG = sh(returnStdout: true, script: '(git rev-parse --short HEAD && echo "_$BUILD_NUMBER") | tr -d "\n"').trim()
-    IMAGE_TAG = 'latest'
+    IMAGE_TAG = '4ab59b2_17'
   }
 
   stages {
