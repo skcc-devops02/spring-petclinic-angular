@@ -13,8 +13,8 @@ pipeline {
     APP_IMAGE = null
     IMAGE_REPO = 'petclinic'
     IMAGE_NAME = 'spring-petclinic-angular'
-    //IMAGE_TAG = sh(returnStdout: true, script: '(git rev-parse --short HEAD && echo "_$BUILD_NUMBER") | tr -d "\n"').trim()
-    IMAGE_TAG = '${GIT_COMMIT_SHORT}_${BUILD_NUMBER}'
+    IMAGE_TAG = sh(returnStdout: true, script: '(git rev-parse --short HEAD && echo "_$BUILD_NUMBER") | tr -d "\n"').trim()
+    //IMAGE_TAG = '${GIT_COMMIT_SHORT}_${BUILD_NUMBER}'
     //APP_URL = 'http://ad12a9b6589314bbba69faa5d946fd36-d076dbf22622104f.elb.ap-northeast-2.amazonaws.com/petclinic'
     //APP_PORT = 80
     //PerfURL='ad12a9b6589314bbba69faa5d946fd36-d076dbf22622104f.elb.ap-northeast-2.amazonaws.com'
